@@ -1,6 +1,6 @@
 import ServiceCard from "@/components/ServiceCard";
-import { Brain, Globe, Code2, Headphones, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import AIMasterclassCard from "@/components/AIMasterclassCard";
+import { Globe, Code2, Headphones, ExternalLink } from "lucide-react";
 
 const webApps = [
   {
@@ -21,21 +21,6 @@ const webApps = [
 ];
 
 const services = [
-  {
-    icon: Brain,
-    title: "AI Masterclass Materials",
-    description:
-      "Comprehensive study materials and resources to master artificial intelligence. From fundamentals to advanced concepts.",
-    features: [
-      "Structured learning paths",
-      "Hands-on projects",
-      "Expert-curated content",
-      "Certificate programs",
-    ],
-    link: "#",
-    linkText: "Explore Materials",
-    isHighlighted: true,
-  },
   {
     icon: Code2,
     title: "Web Development",
@@ -88,6 +73,9 @@ const ServicesSection = () => {
 
         {/* Main Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {/* AI Masterclass Card with Image Slider */}
+          <AIMasterclassCard />
+          
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
