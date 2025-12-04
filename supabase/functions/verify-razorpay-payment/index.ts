@@ -23,7 +23,7 @@ serve(async (req) => {
 
     console.log("Verifying payment:", { razorpay_order_id, razorpay_payment_id, orderId });
 
-    const razorpayKeySecret = Deno.env.get("Secrete_Key_Razrpay")!;
+    const razorpayKeySecret = Deno.env.get("RAZORPAY_KEY_SECRET")!;
 
     // Verify signature
     const body = razorpay_order_id + "|" + razorpay_payment_id;
