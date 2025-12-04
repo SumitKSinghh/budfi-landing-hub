@@ -58,8 +58,8 @@ serve(async (req) => {
     }
 
     // Create Razorpay order
-    const razorpayKeyId = Deno.env.get("RAZORPAY_KEY_ID")!;
-    const razorpayKeySecret = Deno.env.get("RAZORPAY_KEY_SECRET")!;
+    const razorpayKeyId = Deno.env.get("Razrpay_Key_ID")!;
+    const razorpayKeySecret = Deno.env.get("Secrete_Key_Razrpay")!;
 
     const razorpayResponse = await fetch("https://api.razorpay.com/v1/orders", {
       method: "POST",
