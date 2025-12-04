@@ -58,8 +58,20 @@ serve(async (req) => {
     }
 
     // Create Razorpay order
-    const razorpayKeyId = Deno.env.get("RAZORPAY_KEY_ID")!;
-    const razorpayKeySecret = Deno.env.get("RAZORPAY_KEY_SECRET")!;
+    const razorpayKeyId = Deno.env.get("RAZORPAY_KEY_ID");
+    const razorpayKeySecret = Deno.env.get("RAZORPAY_KEY_SECRET");
+
+    console.log("Razorpay Key ID exists:", !!razorpayKeyId);
+    console.log("Razorpay Key Secret exists:", !!razorpayKeySecret);
+    console.log("Key ID length:", razorpayKeyId?.length);
+
+    if (!razorpayKeyId || !razorpayKeySecret) {
+      console.error("Missing Razorpay credentials");
+      return new Response(
+        JSON.stringify({ error: "Payment gateway not configured" }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
 
     const razorpayResponse = await fetch("https://api.razorpay.com/v1/orders", {
       method: "POST",
